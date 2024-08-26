@@ -7,7 +7,7 @@ interface CatImageProps extends StageProps, KonvaNodeEvents {}
 
 const CatImage: React.FC<CatImageProps> = (props) => {
   const [image] = useImage("/cat.png");
-  const { position, goTo } = useMotion();
+  const { position, goTo, rotation } = useMotion();
 
   return (
     <Image
@@ -17,6 +17,7 @@ const CatImage: React.FC<CatImageProps> = (props) => {
       x={position.x}
       y={position.y}
       onDragEnd={(e) => goTo({ x: e.target.attrs.x, y: e.target.attrs.y })}
+      rotationDeg={rotation}
     />
   );
 };

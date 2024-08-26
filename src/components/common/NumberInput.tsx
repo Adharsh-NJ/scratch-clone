@@ -12,7 +12,7 @@ const NumberInput: React.FC<InputProps> = (props) => {
         type="number"
         onChange={props.onChange}
         placeholder="X"
-        className="mx-2 w-7 pl-2 border rounded p-1 text-black"
+        className="mx-2 w-14 pl-2 border rounded p-1 text-black"
       />
     </div>
   );

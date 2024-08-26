@@ -15,6 +15,7 @@ export const MotionProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [position, setPosition] = useState<IPosition>({ x: 100, y: 100 });
+  const [rotation, setRotation] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const move = (steps: number) => {
@@ -24,7 +25,9 @@ export const MotionProvider: React.FC<{ children: ReactNode }> = ({
       y: prevPosition.y,
     }));
   };
-
+  const rotate = () => {
+    setRotation((prev) => prev + 15);
+  };
   const turn = (degrees: number) => {
     // Implement rotation logic here
   };
@@ -60,7 +63,16 @@ export const MotionProvider: React.FC<{ children: ReactNode }> = ({
 
   return (
     <MotionContext.Provider
-      value={{ position, move, turn, goTo, glideTo, isAnimating }}
+      value={{
+        position,
+        move,
+        turn,
+        goTo,
+        glideTo,
+        isAnimating,
+        rotation,
+        rotate,
+      }}
     >
       {children}
     </MotionContext.Provider>

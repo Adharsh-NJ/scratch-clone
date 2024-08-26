@@ -10,6 +10,8 @@ interface IMotionContextType {
   goTo: (position: IPosition) => void;
   glideTo: (x: number, y: number, seconds: number) => void;
   isAnimating: boolean;
+  rotation: number;
+  rotate: () => void;
 }
 
 export type { IPosition, IMotionContextType };
